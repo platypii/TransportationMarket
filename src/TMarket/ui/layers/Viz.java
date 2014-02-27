@@ -174,8 +174,9 @@ public class Viz extends JComponent {
 
         // Don't draw twice:
         if(a.hashCode() < b.hashCode()) {
-          buffer.draw(new Line2D.Double(zoom_x(a.x), zoom_y(a.y),
-                                        zoom_x(b.x), zoom_y(b.y)));
+          buffer.draw(
+            new Line2D.Double(zoom_x(a.x), zoom_y(a.y), zoom_x(b.x), zoom_y(b.y))
+          );
         }
       }
     }
@@ -183,8 +184,7 @@ public class Viz extends JComponent {
 
   // Draw map image
   private void drawMap(Graphics2D buffer, Dimension dim) {
-    if(sim.city.map_image != null && 
-       vizOptions.getChild("Map").isSelected() == TriState.ALL) {
+    if(sim.city.map_image != null && vizOptions.getChild("Map").isSelected() == TriState.ALL) {
       AffineTransform xform = new AffineTransform();
       xform.translate(dim.width / 2, dim.height / 2);
       xform.scale(zoom, zoom);

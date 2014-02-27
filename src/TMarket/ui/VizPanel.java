@@ -68,8 +68,9 @@ public class VizPanel extends JPanel {
       root = new LayerNode.Folder("Layers", Color.BLACK);
       root.addChild(new LayerNode.Leaf("Labels", Color.BLACK, null, false));
       root.addChild(new LayerNode.Leaf("Roads", Color.BLACK, null, true));
-      if(sim.city.map_image != null)
+      if(sim.city.map_image != null) {
         root.addChild(new LayerNode.Leaf("Map", Color.BLACK, null, true));
+      }
 
       // Shuttles
       shuttles = new LayerNode.Folder("Shuttles", Color.BLUE);
@@ -83,6 +84,11 @@ public class VizPanel extends JPanel {
 
     } else {
       // Use previously selected layers
+
+      if(root.getChild("Map") == null && sim.city.map_image != null) {
+        root.addChild(new LayerNode.Leaf("Map", Color.BLACK, null, true));
+      }
+
       // Shuttles
       shuttles.removeAllChildren();
       shuttles.addChild(new LayerNode.Leaf("Heatmap", Color.BLUE, null, false));
