@@ -38,8 +38,8 @@ public class SharingPanel extends JPanel {
                                   "Initial cost",
                                   "Shared cost"};
 
-  private JComboBox seriesBox1 = new JComboBox(seriesNames);
-  private JComboBox seriesBox2 = new JComboBox(seriesNames);
+  private JComboBox<String> seriesBox1 = new JComboBox<String>(seriesNames);
+  private JComboBox<String> seriesBox2 = new JComboBox<String>(seriesNames);
 
   // Options:
   private int type = Plot.BAR_WIDTH_PLOT;

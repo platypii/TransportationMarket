@@ -25,7 +25,7 @@ import java.util.*;
 
 
 // Implements an ordering based on request time
-public class RequestData implements Comparable {
+public class RequestData implements Comparable<RequestData> {
 
   public Request req;
   public int num_forwarded = 0; // number of times the request was forwarded
@@ -43,9 +43,8 @@ public class RequestData implements Comparable {
     this.req = req;
   }
 
-  public int compareTo(Object obj) {
-    // sgn(this - that)
-    RequestData that = (RequestData)obj;
+  public int compareTo(RequestData that) {
+    // Math.sgn(this - that)
     if(this.req.request_time < that.req.request_time)
       return -1;
     else if(this.req.request_time == that.req.request_time)

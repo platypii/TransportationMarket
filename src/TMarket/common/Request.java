@@ -23,7 +23,7 @@ import java.util.*;
 
 
 // Implements an ordering based on request time
-public class Request implements Comparable {
+public class Request implements Comparable<Request> {
 
   public String consumer_id;
 //  public Loc start;
@@ -92,9 +92,8 @@ public class Request implements Comparable {
     return this.toString().hashCode();
   }
 
-  public int compareTo(Object obj) {
-    // sgn(this - that)
-    Request that = (Request)obj;
+  public int compareTo(Request that) {
+    // Math.sgn(this - that)
     if(this.request_time < that.request_time)
       return -1;
     else if(this.request_time == that.request_time)

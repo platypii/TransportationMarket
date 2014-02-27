@@ -39,10 +39,10 @@ public class StepPanel extends JPanel {
                                   "Cost at time t",
                                   "Final cost"};
 
-  private JComboBox leftBox1 = new JComboBox(seriesNames);
-  private JComboBox leftBox2 = new JComboBox(seriesNames);
-  private JComboBox rightBox1 = new JComboBox(seriesNames);
-  private JComboBox rightBox2 = new JComboBox(seriesNames);
+  private JComboBox<String> leftBox1 = new JComboBox<String>(seriesNames);
+  private JComboBox<String> leftBox2 = new JComboBox<String>(seriesNames);
+  private JComboBox<String> rightBox1 = new JComboBox<String>(seriesNames);
+  private JComboBox<String> rightBox2 = new JComboBox<String>(seriesNames);
 
   private JCheckBox outlineButton;
   private JCheckBox uniformButton;
