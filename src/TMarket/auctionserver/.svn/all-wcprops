@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/transit/!svn/ver/173/src/TMarket/auctionserver
+END
+Log.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/transit/!svn/ver/170/src/TMarket/auctionserver/Log.java
+END
+RequestData.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/transit/!svn/ver/173/src/TMarket/auctionserver/RequestData.java
+END
+CState.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/transit/!svn/ver/170/src/TMarket/auctionserver/CState.java
+END
+CostSharing.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/transit/!svn/ver/173/src/TMarket/auctionserver/CostSharing.java
+END
+AuctionServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/transit/!svn/ver/170/src/TMarket/auctionserver/AuctionServer.java
+END
+ClientConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/transit/!svn/ver/170/src/TMarket/auctionserver/ClientConnection.java
+END

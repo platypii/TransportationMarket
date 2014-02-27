@@ -1,0 +1,40 @@
+%straight line pattern
+%real time
+
+
+GRID 16 10
+% CITY grid16x10.cty
+
+
+% CONSUMER id start end request_time earliest_pickup latest_pickup earliest_dropoff latest_dropoff
+%CONSUMER consumer1 B2 D1 00:00 00:15 01:00 00:15 01:20
+%CONSUMER consumer2 B1 C2 00:00 00:30 01:00 00:30 01:30
+%CONSUMER consumer3 B1 D1 00:00 00:25 00:50 00:25 01:10
+
+CONSUMER consumer1 A1 A2 00:00 00:00 00:30 00:00 00:50
+CONSUMER consumer2 C0 D0 00:05 00:15 00:30 00:15 00:50
+CONSUMER consumer3 A2 A3 00:00 00:00 00:40 00:00 00:50
+CONSUMER consumer4 B1 C2 00:00 00:00 06:30 00:00 06:30
+CONSUMER consumer5 C2 C3 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer6 A6 A7 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer7 B0 C0 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer8 C0 D0 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer9 D0 E0 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer10 E0 F0 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer11 F0 G0 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer12 G0 H0 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer13 B1 C2 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer14 C2 D3 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer15 D3 E4 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer16 E4 F5 00:00 00:00 06:30 00:00 06:30 
+% CONSUMER consumer17 F5 G6 00:00 00:00 06:30 00:00 06:30
+% CONSUMER consumer18 G6 H7 00:00 00:00 06:30 00:00 06:30
+
+
+% SHUTTLE  id home start_time end_time
+SHUTTLE shuttle0 A0 00:00 00:50
+SHUTTLE shuttle1 A0 00:00 06:30
+% SHUTTLE shuttle2 A0 00:00 06:30
+
+
+% Comments start with '%', order does not matter

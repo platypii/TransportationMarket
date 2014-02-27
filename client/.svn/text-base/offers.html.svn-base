@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Transportation Market</title>
+</head>
+
+<body>
+
+<form>
+  <table>
+    <tr style="background:#bbb">
+      <td />
+      <td>Shuttle</td>
+      <td>Cost</td>
+      <td>Distance</td>
+      <td>Travel Time</td>
+    </tr><tr>
+      <td><input type="radio" name="offer" value="offer0" /></td>
+      <td>Shuttle0</td>
+      <td>$10</td>
+      <td>3.0 mi</td>
+      <td>0:30</td>
+    </tr><tr>
+      <td><input type="radio" name="offer" value="offer1" /></td>
+      <td>Shuttle1</td>
+      <td>$12</td>
+      <td>2.5 mi</td>
+      <td>0:25</td>
+    </tr>
+  </table>
+  <input type="submit" value="Confirm Offer" />
+</form>
+
+</body>
+</html>

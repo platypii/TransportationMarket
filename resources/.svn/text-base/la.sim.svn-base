@@ -1,0 +1,19 @@
+
+CITY la.cty
+
+CONSUMER consumer1 NWdowntown SantaMonica 00:00 00:15 01:00 00:15 01:30
+CONSUMER consumer2 ShermanOaks Downey 00:00 00:15 01:00 00:15 01:30
+CONSUMER consumer3 SanDimas Carson 00:00 00:15 01:00 00:15 01:30
+%CONSUMER consumer4 B1 D1 00:25 00:25 00:50 00:25 01:10
+%CONSUMER consumer5 B1 D1 00:25 00:25 00:50 00:25 01:10
+%CONSUMER consumer6 B1 D1 00:25 00:25 00:50 00:25 01:10
+
+SHUTTLE shuttle0 Azusa 00:00 02:30
+%SHUTTLE shuttle1 DiamondBar 00:00 02:30
+%SHUTTLE shuttle2 LongBeach 01:00 03:30
+
+
+% Comments start with '%', order does not matter
+% CONSUMER id start end request_time earliest_pickup latest_pickup earliest_dropoff latest_dropoff
+% SHUTTLE  id home start_time end_time
+

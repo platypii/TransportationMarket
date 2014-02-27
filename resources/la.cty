@@ -1,0 +1,112 @@
+MAP LA.png
+
+NODE SWdowntown		673 365
+NODE NWdowntown		694 342
+NODE NEdowntown		715 350
+NODE SEdowntown		715 370
+NODE LongBeach		815 595
+NODE SantaMonica	555 365
+NODE Pasadena		760 270
+NODE ShermanOaks	534 254
+NODE Burbank		600 263
+NODE Carson		665 525
+
+NODE Azusa		906 280
+NODE Downey		805 463
+NODE ElMonte		875 335
+NODE SElMonte		855 365
+NODE SanDimas		1000 290
+NODE Pomona		1015 340
+NODE Anaheim		890 525
+NODE Orange		963 590
+NODE DiamondBar		995 395
+NODE Fullerton		965 530
+
+NODE Inglewood		606 457
+NODE Athens		670 460
+NODE Lynwood		744 473
+NODE Compton		733 508
+NODE Bellflower		800 505
+NODE CalState		754 342
+NODE EastLA		750 366
+NODE Dominguez		723 550
+NODE StadiumWay		711 325
+NODE MarinaDelRey	583 407
+
+NODE Glendale		709 267
+NODE GriffithPark	665 262
+NODE SilverLake		692 307
+NODE Tustin		995 625
+NODE CostaMesa		957 682
+NODE LAX		581 457
+
+
+EDGE SWdowntown		NWdowntown
+EDGE NWdowntown		NEdowntown
+EDGE NEdowntown		SEdowntown
+EDGE SEdowntown		SWdowntown
+EDGE NWdowntown		StadiumWay
+EDGE StadiumWay		Pasadena
+EDGE SantaMonica	SWdowntown
+EDGE Carson		Athens
+EDGE Athens		SWdowntown
+EDGE LongBeach		Dominguez
+
+EDGE Dominguez		Carson
+EDGE Dominguez		Compton
+EDGE SantaMonica	MarinaDelRey
+EDGE MarinaDelRey	Inglewood
+EDGE Inglewood		Carson
+EDGE ShermanOaks	Burbank
+EDGE ShermanOaks	SantaMonica
+EDGE Burbank		NWdowntown
+EDGE Burbank		GriffithPark
+EDGE GriffithPark	Glendale
+
+EDGE Glendale		Pasadena
+EDGE Pasadena		Azusa
+EDGE Downey		Bellflower
+EDGE Bellflower		LongBeach
+EDGE Downey		SElMonte
+EDGE Downey		EastLA
+EDGE EastLA		SEdowntown
+EDGE SEdowntown		EastLA
+EDGE EastLA		SElMonte
+EDGE Azusa		ElMonte
+
+EDGE ElMonte		SElMonte
+EDGE Pomona		SanDimas
+EDGE Pomona		ElMonte
+EDGE SanDimas		Azusa
+EDGE Anaheim		Orange
+EDGE Downey		Anaheim
+EDGE LongBeach		Orange
+EDGE Orange		Fullerton
+EDGE Fullerton		DiamondBar
+EDGE DiamondBar		SElMonte
+
+EDGE DiamondBar		Pomona
+EDGE Fullerton		Anaheim
+EDGE ElMonte		CalState
+EDGE CalState		NEdowntown
+EDGE Inglewood		Athens
+EDGE Athens		Lynwood
+EDGE Lynwood		Compton
+EDGE Compton		Carson
+EDGE Bellflower		Compton
+EDGE Bellflower		Anaheim
+
+EDGE CalState		EastLA
+EDGE EastLA		Lynwood
+EDGE Downey		Lynwood
+EDGE StadiumWay		NEdowntown
+EDGE GriffithPark	Glendale
+EDGE SilverLake		Glendale
+EDGE SilverLake		GriffithPark
+EDGE SilverLake		StadiumWay
+EDGE Orange		Tustin
+EDGE Tustin		CostaMesa
+
+EDGE CostaMesa		LongBeach
+EDGE Inglewood		LAX
+

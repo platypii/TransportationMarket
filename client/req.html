@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Transportation Market</title>
+</head>
+
+<body>
+
+<form action="req.php" method="post">
+  <table>
+    <tr>
+      <td>ID:</td>
+      <td><input type="text" name="id" /></td>
+    </tr><tr>
+      <td>Start location:</td>
+      <td><input type="text" name="start" /></td>
+    </tr><tr>
+      <td>End location:</td>
+      <td><input type="text" name="end" /></td>
+    </tr><tr>
+      <td>Earliest pickup time:</td>
+      <td><input type="text" name="earliest_pickup" value="0:00" /></td>
+    </tr><tr>
+      <td>Latest pickup time:</td>
+      <td><input type="text" name="latest_pickup" value="0:00" /></td>
+    </tr><tr>
+      <td>Earliest dropoff time:</td>
+      <td><input type="text" name="earliest_dropoff" value="0:00" /></td>
+    </tr><tr>
+      <td>Latest dropoff time:</td>
+      <td><input type="text" name="latest_dropoff" value="0:00" /></td>
+    </tr>
+  </table>
+  <input type="submit" value="Make Request" />
+</form>
+
+</body>
+</html>

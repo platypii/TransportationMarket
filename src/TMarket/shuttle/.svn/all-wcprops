@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/transit/!svn/ver/170/src/TMarket/shuttle
+END
+SmartShuttle.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/transit/!svn/ver/170/src/TMarket/shuttle/SmartShuttle.java
+END
+Node.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/transit/!svn/ver/170/src/TMarket/shuttle/Node.java
+END
+ShuttleAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/transit/!svn/ver/170/src/TMarket/shuttle/ShuttleAgent.java
+END
+Shuttle.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/transit/!svn/ver/170/src/TMarket/shuttle/Shuttle.java
+END
+Plan.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/transit/!svn/ver/170/src/TMarket/shuttle/Plan.java
+END

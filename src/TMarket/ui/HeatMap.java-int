@@ -1,0 +1,185 @@
+
+package TMarket.ui;
+
+import java.awt.*;
+import java.awt.image.*;
+
+
+// TODO: Fade heat map over time
+// TODO: Go straight to BufferedImage, and skip int array?
+
+
+public class HeatMap {
+
+  private int width;
+  private int height;
+  public int radius;
+
+  private int map_width;
+  private int map_height;
+
+  private int stamp[][]; // The pattern added to the map
+
+  private int map[][];
+  private int max_heat;
+
+  // Color themes:
+  public enum Theme {FIRE, BLUEFIRE, NIGHT}
+
+  // FIRE: transparent, red, yellow, white
+  private final static Color fire[] = {
+    new Color(255,   0,   0,   0),
+    new Color(255,   0,   0,  30),
+    new Color(255,   0,   0,  60),
+    new Color(255,   0,   0, 100),
+    new Color(255, 255,   0, 170),
+    new Color(255, 255, 255, 255)
+  };
+
+  // BLUEFIRE: transparent, blue, cyan, white
+  private final static Color bluefire[] = {
+    new Color(  0,   0,   0,   0),
+    new Color(  0, 128, 255,  64),
+    new Color(  0, 128, 255, 128),
+    new Color(  0, 128, 255, 192),
+    new Color(  0, 255, 255, 255),
+    new Color(255, 255, 255, 255)
+  };
+
+  // NIGHT: black, deep blue, light yellow
+  private final static Color night[] = {
+    new Color(  0,   0,   0, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(  0,   0,  32, 255),
+    new Color(255, 255, 224, 255)
+  };
+
+  // TODO: purple, red, orange, yellow, tranparent
+
+  // Chosen theme:
+  private Color colors[];
+
+
+  public HeatMap(int width, int height, int radius, Theme theme) {
+    this.width = width;
+    this.height = height;
+    this.radius = radius;
+
+    switch(theme) {
+      case FIRE:
+        colors = fire;
+        break;
+      case BLUEFIRE:
+        colors = bluefire;
+        break;
+      case NIGHT:
+        colors = night;
+        break;
+    }
+
+    map_width = width + radius * 2 + 1;
+    map_height = height + radius * 2 + 1;
+
+    map = new int[map_width][map_height];
+    max_heat = 1;
+
+    // Create stamp
+    stamp = makeStamp(radius);
+
+  }
+
+  public void add(int x, int y) {
+    assert 0 <= x && x < width;
+    assert 0 <= y && y < height;
+
+    // Copy stamp to heat map
+    for(int xx = 0; xx <= 2 * radius; xx++) {
+      for(int yy = 0; yy <= 2 * radius; yy++) {
+        int value = map[x + xx][y + yy] + stamp[xx][yy];
+        map[x + xx][y + yy] = value;
+        if(value > max_heat) {
+          // TODO: Moving average on max_heat
+          max_heat = (5 * max_heat + value) / 6;
+//          max_heat = value;
+        }
+      }
+    }
+  }
+
+  // Resets the heat map between drawings
+  public void reset() {
+    map = new int[map_width][map_height];
+    // TODO: Fade instead of erase
+  }
+
+  // Draw the heat map
+  public BufferedImage getImage() {
+    BufferedImage image = new BufferedImage(map_width, map_height, BufferedImage.TYPE_INT_ARGB);
+
+    // TODO: Draw vector based on view, instead of in map-space and scaling
+
+    for(int x = 0; x < map_width; x++) {
+      for(int y = 0; y < map_height; y++) {
+        // Map heat to color/transparency
+        Color color = getColor(map[x][y]);
+        image.setRGB(x, y, color.getRGB());
+      }
+    }
+    return image;
+  }
+
+  // Generates a heat stamp for a given radius
+  private int[][] makeStamp(int radius) {
+    int stamp[][] = new int[radius * 2 + 1][radius * 2 + 1];
+
+    for(int x = -radius; x <= radius; x++) {
+      for(int y = -radius; y <= radius; y++) {
+        double dist = Math.sqrt(x * x + y * y);
+        double heat = Math.max(0, ((double)radius) - dist);
+        heat = heat * heat * heat * heat / (radius * radius * radius);
+        assert 0 <= heat && heat <= radius;
+        stamp[x + radius][y + radius] = (int) heat;
+      }
+    }
+
+    return stamp;
+  }
+
+  // Returns the color corresponding to the heat intensity (with transparency)
+  // Range: [0.0, 1.0]
+  private Color getColor(int heat) {
+    assert 0 <= heat;
+
+    // Normalize
+//    heat = 1.5 * heat / max_heat;
+
+    // Interpolated color bands
+    int band_size = radius / colors.length;
+    int band = heat / band_size;
+
+    if(band >= colors.length - 1)
+      return colors[colors.length - 1];
+
+    // Return the color interpolated between color1 and color2 by given value
+    double pct = ((double)(heat % band_size)) / band_size;
+    Color color1 = colors[band];
+    Color color2 = colors[band + 1];
+
+    int r = (int)((1.0 - pct) * color1.getRed() + (pct) * color2.getRed());
+    int g = (int)((1.0 - pct) * color1.getGreen() + (pct) * color2.getGreen());
+    int b = (int)((1.0 - pct) * color1.getBlue() + (pct) * color2.getBlue());
+    int a = (int)((1.0 - pct) * color1.getAlpha() + (pct) * color2.getAlpha());
+    return new Color(r, g, b, a);
+  }
+
+}
+
+
