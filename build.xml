@@ -1,0 +1,41 @@
+<project name="TransportationMarket" default="dist" basedir=".">
+  <description>
+    The Transportation Market
+  </description>
+
+  <!-- set global properties for this build -->
+  <property name="source.dir" location="src"/>
+  <property name="build.dir" location="bin"/>
+  <property name="dist.dir"  location="dist"/>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build.dir}"/>
+    <!-- Copy non-source files to build directory -->
+    <copy includeemptydirs="false" todir="${build.dir}">
+      <fileset dir="${source.dir}">
+        <exclude name="**/*.java"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="compile" depends="init" description="compile the source" >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${source.dir}" destdir="${build.dir}" includeantruntime="false"/>
+  </target>
+
+  <target name="dist" depends="compile" description="generate the distribution" >
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist.dir}"/>
+    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    <jar jarfile="${dist.dir}/TransportationMarket-${DSTAMP}.jar" basedir="${build.dir}"/>
+  </target>
+
+  <target name="clean" description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+</project>
